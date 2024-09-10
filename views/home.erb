@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap As A Service</title>
+  <style>
+      body {
+          font-family: 'Helvetica Neue', Arial, sans-serif;
+          background-color: #f8f9fa;
+          color: #343a40;
+          margin: 0;
+          padding: 0;
+      }
+
+      .container {
+          max-width: 800px;
+          margin: 0 auto;
+          padding: 20px;
+      }
+
+      h1 {
+          font-size: 2.5rem;
+          color: #007bff;
+          text-align: center;
+          margin-bottom: 1rem;
+      }
+
+      p {
+          font-size: 1.1rem;
+          line-height: 1.6;
+          margin-bottom: 1.5rem;
+      }
+
+      .code-snippet {
+          background-color: #f1f1f1;
+          border-radius: 5px;
+          padding: 15px;
+          font-family: 'Courier New', Courier, monospace;
+          margin-bottom: 1.5rem;
+          color: #495057;
+      }
+
+      .highlight {
+          background-color: #e9ecef;
+          border-left: 4px solid #007bff;
+          padding: 10px 20px;
+          font-size: 1.1rem;
+          color: #495057;
+      }
+
+      ul {
+          padding-left: 20px;
+      }
+
+      li {
+          margin-bottom: 1rem;
+      }
+
+      a {
+          color: #007bff;
+          text-decoration: none;
+      }
+
+      a:hover {
+          text-decoration: underline;
+      }
+
+      footer {
+          text-align: center;
+          margin-top: 40px;
+          font-size: 0.9rem;
+          color: #868e96;
+      }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>Bootstrap As A Service</h1>
+  <p>
+    Welcome to the Bootstrap As A Service!
+    This tool allows you to dynamically compile Bootstrap SCSS on-the-fly,
+    with the ability to override Bootstrap variables using simple URL query parameters.
+    Perfect for developers who want to customize Bootstrap without setting up a full build pipeline.
+  </p>
+
+  <div class="highlight">
+    <strong>How It Works:</strong>
+    You can request a custom-compiled Bootstrap CSS file by passing valid Bootstrap SCSS variables as query parameters in the URL.
+  </div>
+
+  <h2>Usage</h2>
+  <p>
+    To generate a custom Bootstrap CSS file, simply make a GET request to:
+  </p>
+  <div class="code-snippet">
+    /bootstrap@5.3.3/dist/css/bootstrap.min.css?primary=%23ff6347&secondary=%2300ff00
+  </div>
+  <p>
+    In the above example, the <code>$primary</code> and <code>$secondary</code> Bootstrap variables are overridden with new values.
+  </p>
+
+  <h3>Valid Bootstrap Variables</h3>
+  <p>
+    Only the variables defined in Bootstrap's <code>_variables.scss</code> file can be overridden.
+    Invalid variables will result in an error. Here are some commonly used variables you can override:
+  </p>
+  <ul>
+    <li><strong>primary:</strong> The primary color used across the Bootstrap theme.</li>
+    <li><strong>secondary:</strong> The secondary color used across the Bootstrap theme.</li>
+    <li><strong>font-family:</strong> Set a custom font family for Bootstrap typography.</li>
+    <li><strong>body-bg:</strong> Set the background color for the body.</li>
+    <li>And many more from the <code>_variables.scss</code> file...</li>
+  </ul>
+
+  <h3>Error Handling</h3>
+  <p>
+    If you pass an invalid variable, the API will return a <strong>400 Bad Request</strong> error along with a message indicating which variables were invalid.
+    For example:
+  </p>
+  <div class="code-snippet">
+    Invalid Bootstrap variable(s): wrong_var
+  </div>
+
+  <h3>Example URLs</h3>
+  <ul>
+    <li>
+      <a href="/bootstrap@5.3.3/dist/css/bootstrap.min.css?primary=%23ff6347&secondary=%2300ff00" target="_blank">
+        Custom Bootstrap with Red Primary and Green Secondary
+      </a>
+    </li>
+    <li>
+      <a href="/bootstrap@5.3.3/dist/css/bootstrap.min.css?primary=%23ff5733&font-family='Comic Sans MS'" target="_blank">
+        Custom Bootstrap with Red Primary and Comic Sans MS Font
+      </a>
+    </li>
+    <li>
+      <a href="/bootstrap@5.3.3/dist/css/bootstrap.min.css?primary=darken(%23ff6347,10%)" target="_blank">
+        Custom Bootstrap with Darkened Primary Color
+      </a>
+    </li>
+    <li>
+      <a>
+        <a href="/bootstrap@5.3.3/dist/css/bootstrap.min.css?primary=rgba(255,0,0,0.5)" target="_blank">
+          Custom Bootstrap with Semi-Transparent Primary Color
+      </a>
+    </li>
+  </ul>
+
+  <h3>Non-minified version</h3>
+  <p>
+    If you want to get the non-minified version of the CSS file, you can simply remove the <code>.min</code> part from the URL.
+  </p>
+
+  <h3>Javascript</h3>
+  <p>
+    You can also use the API to fetch the Javascript file. Just replace the <code>.css</code> part with <code>.js</code> in the URL.
+  </p>
+
+  <footer>
+    Built with ❤️ by <a href="https://github.com/coorasse">Alessandro Rodi</a>.
+  </footer>
+</div>
+</body>
+</html>
