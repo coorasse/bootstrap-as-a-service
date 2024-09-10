@@ -5,6 +5,7 @@ FROM ruby:3.3.5
 WORKDIR /app
 ADD Gemfile /app/Gemfile
 ADD Gemfile.lock /app/Gemfile.lock
+ADD .ruby-version /app/.ruby-version
 
 RUN bundle install
 
