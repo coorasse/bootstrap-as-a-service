@@ -13,7 +13,8 @@ registry:
   username: coorasse
   password:
     - KAMAL_REGISTRY_PASSWORD
-
+volumes:
+  - "cache:/app/cache"
 # Configure builder setup.
 # builder:
 #   args:
@@ -54,9 +55,9 @@ registry:
 #     accesslog.format: json
 
 # Configure a custom healthcheck (default is /up on port 3000)
-# healthcheck:
-#   path: /healthz
-#   port: 4000
+healthcheck:
+  path: /up
+  port: 4567
 
 # Bridge fingerprinted assets, like JS and CSS, between versions to avoid
 # hitting 404 on in-flight requests. Combines all files from new and old

@@ -1,165 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark"/>
   <title>Bootstrap As A Service</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.classless.orange.min.css">
+
   <style>
-      body {
-          font-family: 'Helvetica Neue', Arial, sans-serif;
-          background-color: #f8f9fa;
-          color: #343a40;
-          margin: 0;
-          padding: 0;
-      }
-
-      .container {
-          max-width: 800px;
-          margin: 0 auto;
-          padding: 20px;
-      }
-
-      h1 {
-          font-size: 2.5rem;
-          color: #007bff;
-          text-align: center;
-          margin-bottom: 1rem;
-      }
-
-      p {
-          font-size: 1.1rem;
-          line-height: 1.6;
-          margin-bottom: 1.5rem;
-      }
-
-      .code-snippet {
-          background-color: #f1f1f1;
-          border-radius: 5px;
-          padding: 15px;
-          font-family: 'Courier New', Courier, monospace;
-          margin-bottom: 1.5rem;
-          color: #495057;
-      }
-
-      .highlight {
-          background-color: #e9ecef;
-          border-left: 4px solid #007bff;
-          padding: 10px 20px;
-          font-size: 1.1rem;
-          color: #495057;
-      }
-
-      ul {
-          padding-left: 20px;
-      }
-
-      li {
-          margin-bottom: 1rem;
-      }
-
-      a {
-          color: #007bff;
-          text-decoration: none;
-      }
-
-      a:hover {
-          text-decoration: underline;
-      }
-
-      footer {
-          text-align: center;
-          margin-top: 40px;
-          font-size: 0.9rem;
-          color: #868e96;
+      :root {
+          --pico-block-spacing-vertical: 3rem;
       }
   </style>
 </head>
 <body>
-<div class="container">
-  <h1>Bootstrap As A Service</h1>
-  <p>
-    Welcome to the Bootstrap As A Service!
-    This tool allows you to dynamically compile Bootstrap SCSS on-the-fly,
-    with the ability to override Bootstrap variables using simple URL query parameters.
-    Perfect for developers who want to customize Bootstrap without setting up a full build pipeline.
-  </p>
+<main class="container">
+  <nav>
+    <ul>
+      <li><strong>Bootstrap As A Service</strong></li>
+    </ul>
+    <ul>
+      <li>
+        <a href="https://github.com/coorasse/bootstrap-as-a-service">
+          <!-- github logo -->
+          <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Logo" width="32" height="32">
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <h1 style="text-align: center;">Bootstrap As A Service</h1>
+  <section>
+    <p>
+      Welcome to <strong>Bootstrap As A Service</strong>! 👋
+    </p>
+    <p>
+      This tool allows you to dynamically compile Bootstrap SCSS on-the-fly,
+      with the ability to override Bootstrap variables using simple URL query parameters. It's perfect for developers
+      who
+      want to customize
+      Bootstrap without setting up a full build pipeline.
+    </p>
+  </section>
 
-  <div class="highlight">
-    <strong>How It Works:</strong>
-    You can request a custom-compiled Bootstrap CSS file by passing valid Bootstrap SCSS variables as query parameters in the URL.
-  </div>
+  <section>
 
-  <h2>Usage</h2>
-  <p>
-    To generate a custom Bootstrap CSS file, simply make a GET request to:
-  </p>
-  <div class="code-snippet">
-    /bootstrap@5.3.3/dist/css/bootstrap.min.css?primary=%23ff6347&secondary=%2300ff00
-  </div>
-  <p>
-    In the above example, the <code>$primary</code> and <code>$secondary</code> Bootstrap variables are overridden with new values.
-  </p>
+    <h2>How It Works</h2>
+    <p>
+      You can request a custom-compiled Bootstrap CSS file by passing valid Bootstrap SCSS variables as query parameters
+      in the URL.
+    </p>
+    <pre><code>/bootstrap@5.3.3/dist/css/bootstrap.min.css?primary=%23ff6347&secondary=%2300ff00</code></pre>
+    <p>
+      In the above example, the <code>$primary</code> and <code>$secondary</code> Bootstrap variables are overridden
+      with
+      new values.
+    </p>
+  </section>
 
-  <h3>Valid Bootstrap Variables</h3>
-  <p>
-    Only the variables defined in Bootstrap's <code>_variables.scss</code> file can be overridden.
-    Invalid variables will result in an error. Here are some commonly used variables you can override:
-  </p>
-  <ul>
-    <li><strong>primary:</strong> The primary color used across the Bootstrap theme.</li>
-    <li><strong>secondary:</strong> The secondary color used across the Bootstrap theme.</li>
-    <li><strong>font-family:</strong> Set a custom font family for Bootstrap typography.</li>
-    <li><strong>body-bg:</strong> Set the background color for the body.</li>
-    <li>And many more from the <code>_variables.scss</code> file...</li>
-  </ul>
+  <section>
 
-  <h3>Error Handling</h3>
-  <p>
-    If you pass an invalid variable, the API will return a <strong>400 Bad Request</strong> error along with a message indicating which variables were invalid.
-    For example:
-  </p>
-  <div class="code-snippet">
-    Invalid Bootstrap variable(s): wrong_var
-  </div>
+    <h2>Valid Bootstrap Variables</h2>
+    <p>
+      Only the variables defined in Bootstrap's <code>_variables.scss</code> file can be overridden. Invalid variables
+      will result in an error. Here are some commonly used variables you can override:
+    </p>
+    <ul>
+      <li><strong>primary:</strong> The primary color used across the Bootstrap theme.</li>
+      <li><strong>secondary:</strong> The secondary color used across the Bootstrap theme.</li>
+      <li><strong>font-family:</strong> Set a custom font family for Bootstrap typography.</li>
+      <li><strong>body-bg:</strong> Set the background color for the body.</li>
+      <li>And many more from the <code>_variables.scss</code> file...</li>
+    </ul>
+  </section>
 
-  <h3>Example URLs</h3>
-  <ul>
-    <li>
-      <a href="/bootstrap@5.3.3/dist/css/bootstrap.min.css?primary=%23ff6347&secondary=%2300ff00" target="_blank">
-        Custom Bootstrap with Red Primary and Green Secondary
-      </a>
-    </li>
-    <li>
-      <a href="/bootstrap@5.3.3/dist/css/bootstrap.min.css?primary=%23ff5733&font-family='Comic Sans MS'" target="_blank">
-        Custom Bootstrap with Red Primary and Comic Sans MS Font
-      </a>
-    </li>
-    <li>
-      <a href="/bootstrap@5.3.3/dist/css/bootstrap.min.css?primary=darken(%23ff6347,10%)" target="_blank">
-        Custom Bootstrap with Darkened Primary Color
-      </a>
-    </li>
-    <li>
-      <a>
+  <section>
+    <h2>Error Handling</h2>
+    <p>
+      If you pass an invalid variable, the API will return a <strong>400 Bad Request</strong> error along with a message
+      indicating which variables were invalid. For example:
+    </p>
+    <pre><code>Invalid Bootstrap variable(s): wrong_var</code></pre>
+  </section>
+
+  <section>
+    <h2>Example URLs</h2>
+    <ul>
+      <li>
+        <a href="/bootstrap@5.3.3/dist/css/bootstrap.min.css?primary=%23ff6347&secondary=%2300ff00" target="_blank">
+          Custom Bootstrap with Red Primary and Green Secondary
+        </a>
+      </li>
+      <li>
+        <a href="/bootstrap@5.3.3/dist/css/bootstrap.min.css?primary=%23ff5733&font-family='Comic Sans MS'" target="_blank">
+          Custom Bootstrap with Red Primary and Comic Sans MS Font
+        </a>
+      </li>
+      <li>
+        <a href="/bootstrap@5.3.3/dist/css/bootstrap.min.css?primary=darken(%23ff6347,10%)" target="_blank">
+          Custom Bootstrap with Darkened Primary Color
+        </a>
+      </li>
+      <li>
         <a href="/bootstrap@5.3.3/dist/css/bootstrap.min.css?primary=rgba(255,0,0,0.5)" target="_blank">
           Custom Bootstrap with Semi-Transparent Primary Color
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Non-minified Version</h2>
+    <p>
+      If you want to get the non-minified version of the CSS file, you can simply remove the <code>.min</code> part from
+      the URL.
+    </p>
+    <p>
+      <a href="/bootstrap@5.3.3/dist/css/bootstrap.css?primary=%23ff6347&secondary=%2300ff00" target="_blank">
+        Custom Bootstrap with Red Primary and Green Secondary (Non-minified)
       </a>
-    </li>
-  </ul>
+    </p>
+  </section>
 
-  <h3>Non-minified version</h3>
-  <p>
-    If you want to get the non-minified version of the CSS file, you can simply remove the <code>.min</code> part from the URL.
-  </p>
+  <section>
 
-  <h3>Javascript</h3>
-  <p>
-    You can also use the API to fetch the Javascript file. Just replace the <code>.css</code> part with <code>.js</code> in the URL.
-  </p>
+    <h2>JavaScript</h2>
+    <p>
+      You can also use the API to fetch the JavaScript file. Just replace the <code>.css</code> part with
+      <code>.js</code> in the URL.
+    </p>
+    <p>
+      <a href="/bootstrap@5.3.3/dist/js/bootstrap.min.js" target="_blank">
+        Bootstrap JavaScript
+      </a>
+    </p>
+  </section>
 
+  <section>
+    <h2>FAQ</h2>
+
+    <h3>But why?</h3>
+    <p>
+      I don't know. I was bored and I thought it would be fun to build this.
+      In all seriousness: I am a big fan of Rails and Bootstrap, and
+      since Rails is moving towards a no-build approach, I thought this might be useful at some point.
+      I image the story like this:
+    <ul>
+      <li>You want to use Bootstrap, because why not?</li>
+      <li>You just link to Bootstrap CDN because you have a no-build pipeline and you can customize enough via CSS
+        variables
+      </li>
+      <li>At some point youn realize that there's that single customization that you'd like and is not yet available via
+        CSS variables. You also don't want to setup an entire build pipeline, just because of one variable.
+        <strong>Now is when you start using this</strong></li>
+      <li>You soon realize that you want to customize more and Bootstrap as a Service is not enough. You drop it and
+        build from Sass
+      </li>
+    </ul>
+    </p>
+
+    <h3>Can I use this in production?</h3>
+    <p>
+      Do whatever you want. There's Cloudflare in front of it so maybe the performance is not that bad.
+      I also image your browser will cache the CSS file, so why not?
+    </p>
+
+    <h3>Can I contribute?</h3>
+    <p>
+      Sure! Just open a PR on <a href="https://github.com/coorasse/bootstrap-as-a-service">GitHub</a> or <a href="">make a donation</a>
+  </section>
   <footer>
-    Built with ❤️ by <a href="https://github.com/coorasse">Alessandro Rodi</a>.
+    <p>Built with ❤️ by <a href="https://github.com/coorasse">Alessandro Rodi</a></p>
   </footer>
-</div>
+</main>
 </body>
 </html>
