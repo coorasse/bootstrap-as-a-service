@@ -1,0 +1,27 @@
+version: "v1.0"
+name: bootstrap-as-a-service
+agent:
+  machine:
+    type: e2-standard-2
+    os_image: ubuntu2204
+auto_cancel:
+  running:
+    when: 'true'
+fail_fast:
+  cancel:
+    when: "branch != 'main'"
+
+blocks:
+  - name: tests
+    execution_time_limit:
+      minutes: 5
+    task:
+      jobs:
+        - name: tests
+          commands:
+            - echo "all good"
+promotions:
+  - name: main
+    pipeline_file: main-deploy.yml
+    auto_promote:
+      when: "result = 'passed' and branch = 'main'"
