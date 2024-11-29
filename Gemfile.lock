@@ -1,32 +1,13 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (7.2.1)
-      base64
-      bigdecimal
-      concurrent-ruby (~> 1.0, >= 1.3.1)
-      connection_pool (>= 2.2.5)
-      drb
-      i18n (>= 1.6, < 2)
-      logger (>= 1.4.2)
-      minitest (>= 5.1)
-      securerandom (>= 0.3)
-      tzinfo (~> 2.0, >= 2.0.5)
     autoprefixer-rails (10.4.19.0)
       execjs (~> 2)
     base64 (0.2.0)
-    bcrypt_pbkdf (1.1.1)
-    bcrypt_pbkdf (1.1.1-arm64-darwin)
-    bcrypt_pbkdf (1.1.1-x86_64-darwin)
     bigdecimal (3.1.8)
     bootstrap (5.3.3)
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 2.11.8, < 3)
-    concurrent-ruby (1.3.4)
-    connection_pool (2.4.1)
-    dotenv (2.8.1)
-    drb (2.2.1)
-    ed25519 (1.3.0)
     execjs (2.9.1)
     ffi (1.17.0)
     ffi (1.17.0-aarch64-linux-gnu)
@@ -57,32 +38,11 @@ GEM
     google-protobuf (4.28.0-x86_64-linux)
       bigdecimal
       rake (>= 13)
-    i18n (1.14.5)
-      concurrent-ruby (~> 1.0)
-    kamal (1.8.3)
-      activesupport (>= 7.0)
-      base64 (~> 0.2)
-      bcrypt_pbkdf (~> 1.0)
-      concurrent-ruby (~> 1.2)
-      dotenv (~> 2.8)
-      ed25519 (~> 1.2)
-      net-ssh (~> 7.0)
-      sshkit (>= 1.23.0, < 2.0)
-      thor (~> 1.2)
-      zeitwerk (~> 2.5)
     listen (3.9.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
-    logger (1.6.1)
-    minitest (5.25.1)
     mustermann (3.0.3)
       ruby2_keywords (~> 0.0.1)
-    net-scp (4.0.0)
-      net-ssh (>= 2.6.5, < 8.0.0)
-    net-sftp (4.0.0)
-      net-ssh (>= 5.0.0, < 8.0.0)
-    net-ssh (7.2.3)
-    ostruct (0.6.0)
     popper_js (2.11.8)
     rack (3.1.7)
     rack-protection (4.0.0)
@@ -145,25 +105,14 @@ GEM
       google-protobuf (~> 4.27)
     sass-embedded (1.78.0-x86_64-linux-musl)
       google-protobuf (~> 4.27)
-    securerandom (0.3.1)
     sinatra (4.0.0)
       mustermann (~> 3.0)
       rack (>= 3.0.0, < 4)
       rack-protection (= 4.0.0)
       rack-session (>= 2.0.0, < 3)
       tilt (~> 2.0)
-    sshkit (1.23.1)
-      base64
-      net-scp (>= 1.1.2)
-      net-sftp (>= 2.1.2)
-      net-ssh (>= 2.8.0)
-      ostruct
-    thor (1.3.2)
     tilt (2.4.0)
-    tzinfo (2.0.6)
-      concurrent-ruby (~> 1.0)
     webrick (1.8.1)
-    zeitwerk (2.6.18)
 
 PLATFORMS
   aarch64-linux
@@ -194,7 +143,6 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap (= 5.3.3)
-  kamal
   rackup (~> 2.1)
   rerun
   sass-embedded

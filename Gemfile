@@ -8,7 +8,6 @@ gem 'bootstrap', '5.3.3' # Just this version for now
 
 group :development do
   gem 'rerun' # For auto-reloading the server
-  gem 'kamal'
 end
 
 gem "rackup", "~> 2.1"
